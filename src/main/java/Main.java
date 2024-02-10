@@ -8,6 +8,7 @@ public class Main {
         fillProducts(calculator, scanner);
         displayProducts(calculator);
         calculateSumPerPerson(calculator, numberOfPeople);
+        scanner.close();
     }
     private static int getNumberOfPeople(Scanner scanner) {
         int numberOfPeople = 0;
