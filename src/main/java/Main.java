@@ -44,7 +44,7 @@ public class Main {
             System.out.println("Enter name of product");
             name = scanner.next();
         }
-        Double price = 0.0;
+        double price = 0.0;
         while (price <= 0 || Math.abs(price * 100 - Math.round(price * 100)) > 0.001) {
             System.out.println("Enter price of product");
             if (scanner.hasNextDouble()) {
