@@ -45,12 +45,12 @@ public class Main {
             name = scanner.next();
         }
         Double price = 0.0;
-        while (price <= 0) {
+        while (price <= 0 || Math.abs(price * 100 - Math.round(price * 100)) > 0.001) {
             System.out.println("Enter price of product");
             if (scanner.hasNextDouble()) {
                 price = scanner.nextDouble();
-                if (price <= 0) {
-                    System.out.println("The number of people must be positive");
+                if (price <= 0 || Math.abs(price * 100 - Math.round(price * 100)) > 0.001) {
+                    System.out.println("The number of people must be positive and has 2 digits after dot");
                 }
             } else {
                 System.out.println("Invalid input. Please enter value");
