@@ -45,11 +45,11 @@ public class Main {
             name = scanner.next();
         }
         double price = 0.0;
-        while (price <= 0 || Math.abs(price * 100 - Math.round(price * 100)) > 0.001) {
+        while (price <= 0 || isValueHas2Digits(price)) {
             System.out.println("Enter price of product");
             if (scanner.hasNextDouble()) {
                 price = scanner.nextDouble();
-                if (price <= 0 || Math.abs(price * 100 - Math.round(price * 100)) > 0.001) {
+                if (price <= 0 || isValueHas2Digits(price)) {
                     System.out.println("The number of people must be positive and has 2 digits after dot");
                 }
             } else {
@@ -59,6 +59,10 @@ public class Main {
         }
         calculator.add(new Product(name, price));
         System.out.println("Product added");
+    }
+
+    private static boolean isValueHas2Digits(double price) {
+        return Math.abs(price * 100 - Math.round(price * 100)) > 0.001;
     }
 
     private static void displayProducts(Calculator calculator) {
