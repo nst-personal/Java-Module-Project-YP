@@ -1,14 +1,16 @@
 public class RubleFormatter {
     public String format(double number) {
         int floorNumber = (int) Math.floor(number);
-        String ruble;
-        if (floorNumber % 10 == 1 && floorNumber % 100 != 11) {
-            ruble = "rubl'";
-        } else if (floorNumber % 10 >= 2 && floorNumber % 10 <= 4 && (floorNumber % 100 < 10 || floorNumber % 100 >= 20)) {
-            ruble = "rublya";
+        int lastDigit = floorNumber % 10;
+        int lastTwoDigits = floorNumber % 100;
+        if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+            return "rubley";
+        } else if (lastDigit == 1) {
+            return "ruble";
+        } else if (lastDigit >= 2 && lastDigit <= 4) {
+            return "rublya";
         } else {
-            ruble = "rubley";
+            return "rubley";
         }
-        return ruble;
     }
 }
